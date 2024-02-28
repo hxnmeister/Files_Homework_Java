@@ -1,0 +1,4 @@
+I am not a longest line in file!
+I am the longest line (not)
+Hm, maybe I am the longest line in this file?
+Or, its me?

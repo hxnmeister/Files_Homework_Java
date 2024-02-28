@@ -1,0 +1,4 @@
+Some string to check validation!
+
+This string is not correct!
+Another line =)
