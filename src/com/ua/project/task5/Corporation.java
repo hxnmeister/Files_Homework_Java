@@ -2,10 +2,11 @@ package com.ua.project.task5;
 
 import com.ua.project.task5.models.Employee;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Corporation {
+public class Corporation implements Serializable {
     private List<Employee> employees;
 
     public Corporation(List<Employee> employees) {
@@ -15,8 +16,13 @@ public class Corporation {
         this(new ArrayList<Employee>(List.of(
                 new Employee(31, "Oleksa", "Kilovich"),
                 new Employee(23, "Ivan", "Ivanov"),
-                new Employee(43, "Oleg", "Olegov", "Olegovich")
+                new Employee(43, "Oleg", "Olegov", "Olegovich"),
+                new Employee(47, "Andrey", "Ivanov", "Oleksandrovich")
         )));
+    }
+
+    public void setEmployees(List<Employee> employees) {
+        this.employees = employees;
     }
 
     public List<Employee> getEmployees() {
@@ -41,6 +47,15 @@ public class Corporation {
 
     public List<Employee> searchEmployeeByLastname(final String lastName) {
         return this.employees.stream().filter((employee) -> employee.getLastName().equalsIgnoreCase(lastName)).toList();
+    }
+
+    public List<Employee> searchEmployeeByAge(final int age) {
+        return this.employees.stream().filter((employee) -> employee.getAge() == age).toList();
+    }
+
+    public List<Employee> searchEmployeeByLastnameFirstChar(final char firstLetter) {
+        return this.employees.stream().filter((employee) -> employee.getLastName().toLowerCase()
+                .startsWith(String.valueOf(firstLetter).toLowerCase())).toList();
     }
 
     @Override
